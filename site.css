@@ -6156,3 +6156,37 @@ body {
 .hero-slide[data-position="location"] .hero-image {
   filter: brightness(1.16) contrast(1.09) saturate(1.04);
 }
+
+/* Mobile hero actions: direct WhatsApp booking and a compact Instagram shortcut. */
+.hero-secondary-mobile,
+.hero-mobile-instagram {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .hero-secondary-desktop {
+    display: none;
+  }
+
+  .hero-secondary-mobile {
+    display: inline-flex;
+  }
+
+  .hero-mobile-instagram {
+    position: absolute;
+    z-index: 3;
+    right: var(--page-x);
+    bottom: 5.35rem;
+    display: inline-flex;
+    color: var(--white);
+  }
+
+  .hero-mobile-instagram span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}

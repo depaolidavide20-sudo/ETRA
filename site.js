@@ -539,13 +539,14 @@ bookingForm?.addEventListener("submit", (event) => {
   if (!bookingForm.reportValidity()) return;
   const formData = new FormData(bookingForm);
   const details = [
-    `${formData.get("context") || "Prenotazione tavolo"} ETRA`,
-    `Nome: ${formData.get("name") || ""}`,
-    `Data: ${formData.get("date") || "Da definire"}`,
-    `Orario: ${formData.get("time") || "Da definire"}`,
+    "Salve Etra vorrei prenotare un tavolo.",
+    `Nome Cognome: ${formData.get("name") || ""}`,
+    `Quando: ${formData.get("date") || "Da definire"}`,
+    `Ore: ${formData.get("time") || "Da definire"}`,
     `Persone: ${formData.get("guests") || "Da definire"}`,
-    `Messaggio: ${formData.get("message") || ""}`,
   ];
+  const message = String(formData.get("message") || "").trim();
+  if (message) details.push(`Note: ${message}`);
   const bodyText = encodeURIComponent(details.join("\n"));
   window.open(`https://wa.me/393311014699?text=${bodyText}`, "_blank", "noopener,noreferrer");
   closeBookingModal();

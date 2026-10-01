@@ -6163,12 +6163,6 @@ body {
   display: none;
 }
 
-.food-card picture,
-.location-card picture {
-  display: block;
-  width: 100%;
-}
-
 @media (max-width: 760px) {
   .hero-secondary-desktop {
     display: none;

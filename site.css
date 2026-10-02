@@ -6201,3 +6201,246 @@ body {
     stroke: none;
   }
 }
+
+/* Final mobile composition: compact reviews, cinematic map and usable catalogs. */
+@media (max-width: 760px) {
+  .reviews-section {
+    min-height: calc(100svh - 3.25rem);
+    padding: 3.75rem var(--page-x) 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .reviews-intro {
+    width: 100%;
+    margin: 0 auto 1.35rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 0.8rem;
+    text-align: left;
+  }
+
+  .reviews-intro > div:first-child,
+  .reviews-intro h2 {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .reviews-intro h2 {
+    max-width: 13rem;
+    margin-top: 0.65rem;
+    font-size: 2.45rem;
+    line-height: 0.92;
+  }
+
+  .rating-block {
+    max-width: none;
+    padding: 0 0 0.2rem;
+    justify-content: flex-end;
+  }
+
+  .rating-block strong {
+    font-size: 2.25rem;
+  }
+
+  .rating-block p {
+    margin-left: 0.65rem;
+    font-size: 0.5rem;
+  }
+
+  .review-grid {
+    width: calc(100% + var(--page-x));
+    margin: 0 calc(var(--page-x) * -1) 0 0;
+    gap: 0.7rem;
+  }
+
+  .review-card {
+    flex: 0 0 78vw;
+    min-height: 13.75rem;
+    padding: 1.25rem;
+  }
+
+  .review-card blockquote {
+    min-height: 0;
+    margin: 1rem 0 1.25rem;
+    font-size: 1.12rem;
+    line-height: 1.35;
+  }
+
+  .review-card > p {
+    padding-top: 0.75rem;
+    font-size: 0.52rem;
+  }
+
+  .stars {
+    font-size: 0.56rem;
+  }
+
+  .reviews-link {
+    width: 100%;
+    padding-top: 1.2rem;
+    flex-direction: row;
+    gap: 0.65rem;
+    flex-wrap: nowrap;
+  }
+
+  .reviews-link a {
+    min-height: 2.75rem;
+    padding: 0 0.75rem;
+    gap: 0.55rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.09em;
+    text-align: center;
+  }
+
+  .review-text-link {
+    border: 1px solid rgba(10, 18, 15, 0.36);
+  }
+
+  .contact-section .map-wrap {
+    height: 26rem;
+    padding: 0 var(--page-x) 4.25rem;
+    background: var(--paper);
+  }
+
+  .contact-section .map-frame {
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 1.6rem 3.8rem rgba(10, 18, 15, 0.24);
+  }
+
+  .contact-section .map-frame::before {
+    inset: 0.55rem;
+    border-color: rgba(255, 253, 248, 0.62);
+    border-radius: 0;
+  }
+
+  .contact-section .map-frame iframe {
+    filter: saturate(1.24) contrast(1.08) brightness(1.02);
+  }
+
+  .contact-section .map-veiling {
+    background: linear-gradient(180deg, transparent 52%, rgba(7, 13, 10, 0.22));
+  }
+
+  .contact-section .map-label {
+    right: 1.25rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    width: auto;
+    padding: 0.9rem 1rem;
+    border-color: rgba(255, 253, 248, 0.42);
+    border-radius: 0;
+    background: rgba(7, 13, 10, 0.84);
+    backdrop-filter: blur(10px);
+  }
+
+  .card-dialog {
+    height: 100dvh;
+    min-height: 0;
+  }
+
+  .card-header {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0.7rem 1rem 0.8rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    gap: 0.65rem;
+  }
+
+  .card-tabs {
+    grid-column: 1;
+    grid-row: 1;
+    width: calc(100% - 3.2rem);
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .card-tabs button {
+    flex: 1 1 0;
+    min-height: 2.35rem;
+    padding: 0 0.35rem;
+    font-size: 0.48rem;
+    letter-spacing: 0.06em;
+  }
+
+  .card-brand-mark {
+    grid-column: 1;
+    grid-row: 2;
+    width: 6.3rem;
+    height: auto;
+    justify-self: center;
+  }
+
+  .card-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .card-body {
+    min-height: 0;
+    padding: 0.9rem 1.1rem 3rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .card-intro {
+    display: block;
+    margin: 0 auto 1.4rem;
+    text-align: center;
+  }
+
+  .card-intro .section-kicker,
+  .card-intro > p:last-child {
+    display: none;
+  }
+
+  .card-intro h2 {
+    width: 100%;
+    margin: 0;
+    font-size: clamp(0.98rem, 5.1vw, 1.3rem);
+    line-height: 1.1;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .catalog {
+    width: 100%;
+  }
+
+  .catalog-section {
+    display: block;
+    padding: 1.35rem 0 1.8rem;
+  }
+
+  .catalog-section h3 {
+    margin-bottom: 0.9rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .catalog-section h3 small {
+    margin-top: 0.4rem;
+  }
+
+  .catalog-item {
+    padding: 0.8rem 0;
+    gap: 0.65rem;
+  }
+
+  .catalog-item h4 {
+    font-size: 0.84rem;
+  }
+
+  .catalog-item p,
+  .catalog-item > span {
+    font-size: 0.56rem;
+  }
+}

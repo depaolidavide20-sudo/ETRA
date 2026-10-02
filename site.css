@@ -6674,3 +6674,21 @@ body {
     margin: 0 auto;
   }
 }
+
+/* Final mobile catalog typography and review title scale. */
+@media (max-width: 760px) {
+  .card-header {
+    border-bottom: 0;
+  }
+
+  .card-intro h2 {
+    font-size: clamp(1.15rem, 5.8vw, 1.45rem);
+    white-space: nowrap;
+  }
+
+  .reviews-intro h2 {
+    font-size: clamp(2.5rem, 12.7vw, 3.1rem);
+    line-height: 0.94;
+    white-space: nowrap;
+  }
+}

@@ -410,9 +410,32 @@ const cardDescription = cardModal?.querySelector("[data-card-description]");
 const catalogNote = cardModal?.querySelector(".catalog-note");
 let activeCardType = "food";
 let cardCloseTimer;
+let wineCatalogRetry;
+
+const syncWineCatalog = () => {
+  if (!Array.isArray(window.ETRA_WINE_CATALOG) || !window.ETRA_WINE_CATALOG.length) return false;
+  menuCatalogs.wine.sections = window.ETRA_WINE_CATALOG;
+  return true;
+};
+
+const ensureWineCatalog = () => {
+  if (syncWineCatalog() || wineCatalogRetry) return;
+  wineCatalogRetry = document.createElement("script");
+  wineCatalogRetry.src = `wine-catalog.js?v=${Date.now()}`;
+  wineCatalogRetry.onload = () => {
+    syncWineCatalog();
+    wineCatalogRetry = null;
+    if (activeCardType === "wine") renderCatalog();
+  };
+  wineCatalogRetry.onerror = () => {
+    wineCatalogRetry = null;
+  };
+  document.head.append(wineCatalogRetry);
+};
 
 const renderCatalog = () => {
   if (!cardContent || !cardKicker || !cardTitle || !cardDescription) return;
+  if (activeCardType === "wine") syncWineCatalog();
   const catalog = menuCatalogs[activeCardType];
   const intro = catalog.intro[currentLanguage];
   cardKicker.textContent = intro.kicker;
@@ -439,6 +462,7 @@ const renderCatalog = () => {
 
 const setCardType = (type) => {
   activeCardType = menuCatalogs[type] ? type : "food";
+  if (activeCardType === "wine") ensureWineCatalog();
   cardModal?.querySelectorAll("[data-card-tab]").forEach((button) => {
     const active = button.dataset.cardTab === activeCardType;
     button.classList.toggle("is-active", active);

@@ -6692,3 +6692,11 @@ body {
     white-space: nowrap;
   }
 }
+
+/* Catalog hierarchy: titles only, descriptions remain regular. */
+.card-intro h2,
+.card-intro h2 em,
+.catalog-section h3,
+.catalog-item h4 {
+  font-weight: 700;
+}
